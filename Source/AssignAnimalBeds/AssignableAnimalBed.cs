@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -27,10 +26,7 @@ namespace AssignAnimalBeds
                     defaultDesc = "CommandBedSetAsMedicalDesc".Translate(),
                     icon = ContentFinder<Texture2D>.Get("UI/Commands/AsMedical", true),
                     isActive = (() => this.Medical),
-                    toggleAction = delegate
-                    {
-                        this.Medical = !this.Medical;
-                    },
+                    toggleAction = (() => this.Medical = !this.Medical),
                     hotKey = KeyBindingDefOf.Misc2
                 };
 
@@ -40,10 +36,7 @@ namespace AssignAnimalBeds
                     defaultLabel = "CommandBedSetOwnerLabel".Translate(),
                     icon = ContentFinder<Texture2D>.Get("UI/Commands/AssignOwner", true),
                     defaultDesc = "CommandBedSetOwnerDesc".Translate(),
-                    action = delegate
-                    {
-                        Find.WindowStack.Add(new Dialog_AssignBuildingOwner(this));
-                    },
+                    action = () => Find.WindowStack.Add(new Dialog_AssignBuildingOwner(this)),
                     hotKey = KeyBindingDefOf.Misc4
                 };
             }
@@ -90,27 +83,18 @@ namespace AssignAnimalBeds
             stringBuilder.Append(base.GetInspectString());
             stringBuilder.AppendLine();
 
-            /*if (this.PlayerCanSeeOwners)
-            {
-                stringBuilder.AppendLine("ForColonistUse".Translate());
-            }*/
-
             if (this.Medical)
             {
                 stringBuilder.AppendLine("MedicalBed".Translate());
-                stringBuilder.AppendLine("RoomSurgerySuccessChanceFactor".Translate() + ": " + this.GetRoom(RegionType.Set_Passable).GetStat(RoomStatDefOf.SurgerySuccessChanceFactor).ToStringPercent());
-                stringBuilder.AppendLine("RoomInfectionChanceFactor".Translate() + ": " + this.GetRoom(RegionType.Set_Passable).GetStat(RoomStatDefOf.InfectionChanceFactor).ToStringPercent());
+                if (base.Spawned)
+                    stringBuilder.AppendLine("RoomInfectionChanceFactor".Translate() + ": " + this.GetRoom(RegionType.Set_Passable).GetStat(RoomStatDefOf.InfectionChanceFactor).ToStringPercent());
             }
             else if (this.PlayerCanSeeOwners)
             {
                 if (this.owners.Count == 0)
-                {
                     stringBuilder.AppendLine("Owner".Translate() + ": " + "Nobody".Translate().ToLower());
-                }
                 else if (this.owners.Count == 1)
-                {
                     stringBuilder.AppendLine("Owner".Translate() + ": " + this.owners[0].Label);
-                }
                 else
                 {
                     stringBuilder.Append("Owners".Translate() + ": ");
@@ -118,9 +102,7 @@ namespace AssignAnimalBeds
                     for (int i = 0; i < this.owners.Count; i++)
                     {
                         if (flag)
-                        {
                             stringBuilder.Append(", ");
-                        }
                         flag = true;
                         stringBuilder.Append(this.owners[i].LabelShort);
                     }
@@ -174,9 +156,7 @@ namespace AssignAnimalBeds
                 if (this.owners.Count == 1)
                 {
                     if (this.owners[0].InBed() && this.owners[0].CurrentBed() == this) 
-                    {
                         return;
-                    }
                     GenMapUI.DrawThingLabel(this, this.owners[0].NameStringShort, defaultThingLabelColor);
                 }
                 // NOTE: use this code later for multi.
@@ -199,16 +179,11 @@ namespace AssignAnimalBeds
             get
             {
                 if (base.Faction == Faction.OfPlayer)
-                {
                     return true;
-                }
                 for (int i = 0; i < this.owners.Count; i++)
-                {
                     if (this.owners[i].Faction == Faction.OfPlayer || this.owners[i].HostFaction == Faction.OfPlayer)
-                    {
                         return true;
-                    }
-                }
+
                 return false;
             }
         }

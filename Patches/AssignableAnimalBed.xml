@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Patch>
 
-	<Operation Class="PatchOperationReplace">
-		<xpath>Buildings/ThingDef[defName = "AnimalSleepingSpot"]/ThingClass</xpath>
-		<value>
-			<ThingClass>AssignAnimalBeds.AssignableAnimalBed</ThingClass>
-		</value>
-	</Operation>
+    <Operation Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef[defName = "AnimalSleepingSpot"]/thingClass</xpath>
+        <value>
+            <thingClass>AssignAnimalBeds.AssignableAnimalBed</thingClass>
+        </value>
+    </Operation>
 
-	<Operation Class="PatchOperationReplace">
-		<xpath>Buildings/ThingDef[defName = "AnimalSleepingBox"]/ThingClass</xpath>
-		<value>
-			<ThingClass>AssignAnimalBeds.AssignableAnimalBed</ThingClass>
-		</value>
-	</Operation>
+    <Operation Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef[defName = "AnimalSleepingBox"]/thingClass</xpath>
+        <value>
+            <thingClass>AssignAnimalBeds.AssignableAnimalBed</thingClass>
+        </value>
+    </Operation>
 
-	<Operation Class="PatchOperationReplace">
-		<xpath>Buildings/ThingDef[defName = "AnimalBed"]/ThingClass</xpath>
-		<value>
-			<ThingClass>AssignAnimalBeds.AssignableAnimalBed</ThingClass>
-		</value>
-	</Operation>
+    <Operation Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef[defName = "AnimalBed"]/thingClass</xpath>
+        <value>
+            <thingClass>AssignAnimalBeds.AssignableAnimalBed</thingClass>
+        </value>
+    </Operation>
 
 </Patch>
