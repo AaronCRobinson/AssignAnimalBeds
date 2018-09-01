@@ -51,7 +51,7 @@ namespace AssignAnimalBeds
                 {
                     return Enumerable.Empty<Pawn>();
                 }
-                return from p in Find.VisibleMap.mapPawns.AllPawns
+                return from p in Find.CurrentMap.mapPawns.AllPawns
                        where p.RaceProps.Animal && p.Faction == Faction.OfPlayer
                        select p;
             }
@@ -64,8 +64,9 @@ namespace AssignAnimalBeds
                 return;
             }
 
-            // lazy init 
-            if (owner.ownership == null) owner.ownership = new Pawn_Ownership(owner);
+            // Now replaced by a Harmony postfix since there were still errors beforehand
+            //// lazy init 
+            //if (owner.ownership == null) owner.ownership = new Pawn_Ownership(owner);
 
             owner.ownership.UnclaimBed();
             if (this.owners.Count == this.MaxAssignedPawnsCount)
@@ -157,7 +158,7 @@ namespace AssignAnimalBeds
                 {
                     if (this.owners[0].InBed() && this.owners[0].CurrentBed() == this) 
                         return;
-                    GenMapUI.DrawThingLabel(this, this.owners[0].NameStringShort, defaultThingLabelColor);
+                    GenMapUI.DrawThingLabel(this, this.owners[0].LabelShort, defaultThingLabelColor);
                 }
                 // NOTE: use this code later for multi.
                 /*else
