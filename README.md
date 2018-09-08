@@ -1,6 +1,4 @@
-[![RimWorld Alpha 18](https://img.shields.io/badge/RimWorld-Alpha%2018-brightgreen.svg)](http://rimworldgame.com/)
-
-# Lay Right Here
+# Lay Right Here [![RimWorld Beta 19](https://img.shields.io/badge/RimWorld-Beta%20v0.19-green.svg?longCache=true&style=plastic)](http://rimworldgame.com/)
 ### (AssignAnimalBeds)
 
 ## Features
@@ -11,11 +9,11 @@
 - Save game compatible
 
 ## Acknowledgements
-
 Special thanks to Pardeike's amazing non-destructive patching library, Harmony, and Jec for his superb tools.
+
 <p align="center">
   <a href="https://github.com/pardeike/Harmony">
-    <img src="https://s24.postimg.org/58bl1rz39/logo.png" alt="Harmony" />
+    <img src="https://raw.githubusercontent.com/pardeike/Harmony/master/HarmonyLogo.png" alt="Harmony" width="128" />
   </a>
 </p>
 
