@@ -7,6 +7,6 @@
   <Host name="Direct">
     <AboutUri>https://raw.githubusercontent.com/AaronCRobinson/LayRightHere/master/About/About.xml</AboutUri>
     <ModSyncUri>https://raw.githubusercontent.com/AaronCRobinson/LayRightHere/master/About/ModSync.xml</ModSyncUri>
-    <DownloadUri>https://github.com/AaronCRobinson/LayRightHere/releases/tag/v0.18.0.1</DownloadUri>
+    <DownloadUri>https://github.com/AaronCRobinson/LayRightHere/releases/tag/v0.19.0</DownloadUri>
   </Host>
 </ModSyncNinjaData>
