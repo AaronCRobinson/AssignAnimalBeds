@@ -1,4 +1,4 @@
-# Lay Right Here [![RimWorld Beta 19](https://img.shields.io/badge/RimWorld-Beta%20v0.19-green.svg?longCache=true&style=plastic)](http://rimworldgame.com/)
+# Lay Right Here [![RimWorld 1.0](https://img.shields.io/badge/RimWorld-1.0-green.svg?longCache=true&style=plastic)](http://rimworldgame.com/)
 ### (AssignAnimalBeds)
 
 ## Features
